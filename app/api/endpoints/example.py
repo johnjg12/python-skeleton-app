@@ -8,7 +8,7 @@ from app.core.utils import CustomJSONEncoder
 from app.schemas.example import HelloWorldResponse, ExampleListResponse, ExampleItem
 from app.schemas.responses import ErrorResponse, Paging
 
-router = APIRouter()
+router = APIRouter(tags=["Example"])
 
 
 @router.get("/hello_world", response_model=HelloWorldResponse)
