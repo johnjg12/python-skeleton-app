@@ -24,8 +24,8 @@ and well-structured API services.
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/python-api-example.git
-   cd python-api-example
+   git clone https://github.com/johnjg12/python-skeleton-app.git
+   cd python-skeleton-app
    ```
 
 2. **Set Up a Virtual Environment**
