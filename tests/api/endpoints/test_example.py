@@ -3,6 +3,7 @@ from app.main import app  # Import your FastAPI app
 
 client = TestClient(app)
 
+
 def test_root():
     response = client.get("/")
     assert response.status_code == 200
@@ -10,6 +11,7 @@ def test_root():
     # assert body does not have errors key
     assert "errors" not in response.json()
     assert "Trackingid" in response.headers
+
 
 def test_root_authenticated():
     response = client.get("/authenticated")
@@ -24,6 +26,16 @@ def test_root_authenticated():
     assert response.json() == {"data": {"message": "Welcome to my Python powered API, username1!"}}
     # assert body does not have errors key
     assert "errors" not in response.json()
+
+
+def test_no_route():
+    response = client.get("/no_route")
+    assert response.status_code == 404
+    assert response.json() == {"errors": ["Not Found"]}
+    # assert body does not have errors key
+    assert "data" not in response.json()
+    assert "Trackingid" in response.headers
+
 
 def test_hello_world():
     response = client.get("/example/hello_world")

@@ -8,6 +8,7 @@ from app.schemas.responses import SuccessResponse
 from app.core.logger import logger
 from app.api.endpoints.example import router as example_router
 from app.services.auth import get_api_key
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 # Set up FastAPI
 app = FastAPI(
@@ -17,7 +18,7 @@ app = FastAPI(
 )
 app.add_middleware(TrackingIDMiddleware)
 # Register the custom exception handler with your FastAPI app
-app.add_exception_handler(HTTPException, http_exception_handler)
+app.add_exception_handler(StarletteHTTPException, http_exception_handler)
 
 # Define your FastAPI routes and endpoints here
 app.include_router(example_router, prefix="/example")
