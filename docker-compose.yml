@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  python-api:
+    build: .
+    ports:
+      - "8000:8000"
+      # uncomment below if you want to pass your app python code into the container for live development
+      #    volumes:
+      #      - ./app:/opt/python-api/app
+    env_file:
+      - .env
