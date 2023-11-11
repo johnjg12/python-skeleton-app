@@ -2,3 +2,4 @@
 venv
 local_resources
 .pytest_cache
+.idea
