@@ -11,13 +11,13 @@ from app.schemas.responses import ErrorResponse, Paging
 router = APIRouter(tags=["Example"])
 
 
-@router.get("/hello_world", response_model=HelloWorldResponse)
+@router.get("/hello_world", response_model=HelloWorldResponse, description="Returns Hello World string.")
 async def hello_world():
     hello_response = HelloWorldResponse(data="Hello World from my Python API!")
     return JSONResponse(content=hello_response.dict(exclude_none=True))
 
 
-@router.get("/list", response_model=ExampleListResponse)
+@router.get("/list", response_model=ExampleListResponse, description="Returns a list of ExampleItem objects.")
 async def example_list():
     # Example data with ExampleItem objects
     data = [
@@ -32,7 +32,7 @@ async def example_list():
     return JSONResponse(content=json.loads(json_response))
 
 
-@router.get("/error", response_model=ErrorResponse)
+@router.get("/error", response_model=ErrorResponse, description="Returns an error response.")
 async def example_error():
     error_response = ErrorResponse(errors=["An error occurred"])
     return JSONResponse(content=error_response.dict(exclude_none=True), status_code=400)
