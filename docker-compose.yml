@@ -5,8 +5,9 @@ services:
     build: .
     ports:
       - "8000:8000"
-      # uncomment below if you want to pass your app python code into the container for live development
-      #    volumes:
-      #      - ./app:/opt/python-api/app
+    volumes:
+      - ./local_resources/:/opt/python-api/local_resources/
+    # uncomment below if you want to pass your app python code into the container for live development
+    #      - ./app:/opt/python-api/app
     env_file:
       - .env
