@@ -20,9 +20,6 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
     )
 
 
-# Your existing endpoint and UnauthorizedErrorResponse remain the same
-
-
 class CustomJSONEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime):
