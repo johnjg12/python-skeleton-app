@@ -28,6 +28,12 @@ variable "subnet_allow_to_api" {
   default     = "0.0.0.0/0"
 }
 
+variable "subnet_allow_to_ssh" {
+  description = "Source subnet to allow access to ssh" # set to specific IP address to restrict access
+  type        = string
+  default     = "0.0.0.0/0"
+}
+
 variable "fastapi_public_port" {
   description = "FastAPI public port to allow to connect from internet"
   type        = number

@@ -20,13 +20,13 @@ resource "aws_instance" "fastapi_ec2" {
 resource "aws_security_group" "fastapi_sg" {
   name = "fastapi_sg"
 
-  # uncomment to allow SSH access (recommended to use EC2 instance connect)
-  #  ingress {
-  #    from_port   = 22
-  #    to_port     = 22
-  #    protocol    = "tcp"
-  #    cidr_blocks = ["0.0.0.0/0"] # replace with your IP for SSH access to be more secure
-  #  }
+  # allow SSH access (recommended to use EC2 instance connect)
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.subnet_allow_to_ssh] # replace with your IP for SSH access to be more secure
+  }
 
   ingress {
     from_port   = var.fastapi_public_port
