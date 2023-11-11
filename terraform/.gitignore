@@ -1,1 +1,4 @@
 ec2-public-ssh-key.pub
+variables.tf
+.terraform*
+terraform.tfstate*

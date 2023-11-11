@@ -20,8 +20,10 @@ To quickly start the deployment, follow these steps:
    ```bash
    git clone https://github.com/johnjg12/python-skeleton-app.git
    cd python-skeleton-app/terraform
+   cp variables.tf.example variables.tf
    ```
 
+Note: Modify `variables.tf` to your liking.  
 Next, you need a public ssh key to add to the ec2 instance so you can ssh to it.
 Copy that to this directory and name it `ec2-public-ssh-key.pub`.
 
@@ -29,7 +31,8 @@ Hint: if you need to generate a public key from a private key (i.e. a `.pem` fil
 following:
 
 ```bash
-openssl rsa -in /path/to/my-private-key.pem -pubout -outform PEM -out ec2-public-ssh-key.pub
+KEY_PATH=/path/to/my-private-key.pem
+ssh-keygen -y -f "$KEY_PATH" > ec2-public-ssh-key.pub
 ```
 
 2. **Set Up Your AWS Credentials**
@@ -62,7 +65,7 @@ openssl rsa -in /path/to/my-private-key.pem -pubout -outform PEM -out ec2-public
    the FastAPI application.
 
    ```bash
-   http://<EC2-instance-public-IP>
+   http://<EC2-instance-public-IP>:<fastapi_public_port>
    ```
 
 ## Configuration
