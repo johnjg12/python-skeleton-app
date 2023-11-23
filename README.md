@@ -211,7 +211,9 @@ used in production. use something like redis or another db/cache service.
 ```markdown
 ## API Authentication
 
-APIKEYS must be manually generated and added to `local_resources/api_keys.json`
+APIKEYS can be generated using the `generate_new_api_key_for_local_api.py` script
+This will prompt you user the user or app name for the apikey then it will write it to `local_resources/api_keys.json`.
+You will need to restart the FastAPI server for the new api key to be loaded.
 
 Example api_keys.json file:
 
@@ -222,7 +224,7 @@ Example api_keys.json file:
 }
 ```
 
-To generate a new api key in python you can use the following code:
+To manually generate a new api key in python you can use the following code:
 
 ```python
 import secrets
