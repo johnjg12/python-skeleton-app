@@ -57,7 +57,7 @@ async def root_authenticated(username: str = Depends(get_api_key)):
 
 def main():
     # Change reload=True to if you want to enable auto-reload (don't do this in production)
-    uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)
+    uvicorn.run(app, host=env.get_hostname(), port=env.get_app_port(), reload=False)
 
 
 if __name__ == "__main__":

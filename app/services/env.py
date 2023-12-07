@@ -12,11 +12,11 @@ def get_app_url() -> str:
     return ret
 
 
-def get_app_port() -> str:
+def get_app_port() -> int:
     ret = get_envar('APP_PORT')
     if ret is None:
         ret = '8000'
-    return ret
+    return int(ret)
 
 
 def get_envar(envar: str) -> str | None:
